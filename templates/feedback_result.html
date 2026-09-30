@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="alert success">✅ Your plan has been updated based on your feedback.</div>
+<section class="card">
+    <h1>🔄 Updated FitBuddy Plan</h1>
+    <div class="profile-grid">
+        <div><span>Name</span><strong>{{ user.name }}</strong></div>
+        <div><span>User ID</span><strong>{{ user.user_id }}</strong></div>
+        <div><span>Goal</span><strong>{{ user.goal }}</strong></div>
+        <div><span>Intensity</span><strong>{{ user.intensity }}</strong></div>
+    </div>
+</section>
+<section class="card highlight"><h2>Updated 7-Day Plan</h2><pre class="plan">{{ updated_plan }}</pre></section>
+<section class="card"><h2>🥗 Nutrition / Recovery Tip</h2><p>{{ nutrition_tip }}</p></section>
+<section class="actions">
+    <a class="btn secondary" href="/">Create Another Plan</a>
+    <a class="btn secondary" href="/view-all-users">Admin View</a>
+</section>
+{% endblock %}

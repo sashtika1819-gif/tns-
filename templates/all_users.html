@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <div class="result-header">
+        <div><span class="badge">ADMIN DASHBOARD</span><h1>👥 All Users & Workout Plans</h1></div>
+        <a class="btn secondary" href="/">Home</a>
+    </div>
+    {% if not rows %}<p>No users have generated a plan yet.</p>{% endif %}
+    {% for row in rows %}
+    <article class="admin-user">
+        <div class="profile-grid">
+            <div><span>User ID</span><strong>{{ row.user.user_id }}</strong></div>
+            <div><span>Name</span><strong>{{ row.user.name }}</strong></div>
+            <div><span>Age</span><strong>{{ row.user.age }}</strong></div>
+            <div><span>Weight</span><strong>{{ row.user.weight }} kg</strong></div>
+            <div><span>Goal</span><strong>{{ row.user.goal }}</strong></div>
+            <div><span>Intensity</span><strong>{{ row.user.intensity }}</strong></div>
+        </div>
+        {% if row.plan %}
+        <div class="plan-columns">
+            <div><h3>Original Plan</h3><pre class="plan compact">{{ row.plan.original_plan }}</pre></div>
+            <div><h3>Updated Plan</h3><pre class="plan compact">{{ row.plan.updated_plan or "Not updated yet." }}</pre></div>
+        </div>
+        {% else %}<p>No workout plan stored.</p>{% endif %}
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card narrow">
+    <span class="badge">ADMIN</span>
+    <h1>FitBuddy Admin Dashboard</h1>
+    <p>Enter the admin key configured in your <code>.env</code> file.</p>
+    <form action="/view-all-users" method="get">
+        <label>Admin Key<input type="password" name="key" required></label>
+        <button class="btn primary" type="submit">Open Dashboard</button>
+    </form>
+</section>
+{% endblock %}
